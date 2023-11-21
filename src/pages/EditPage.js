@@ -5,13 +5,36 @@ import styled from 'styled-components';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { BiLeftArrow, BiCube, BiCommentDetail, BiImageAdd } from "react-icons/bi";
-// import console = require('console');
-
+import ImageAdaptor from "../components/ImageAdaptor.js";
+import ThreeImage from "../components/ThreeImage.js";
 
 
 function EditPage() {
+  // 영역 관리 state
   const [state, setState] = useState({[uuidv4()]: []})
-  // a little function to help us with reordering the result
+  
+  // 블록 별 {id, data}
+  const [dataList, setDataList] = useState([]);
+
+  // 렌더링 시 return할 블록 {id, content}
+  const [blockList, setBlockList] = useState([]);
+  
+
+  // 블록 렌더링 함수 (content로 식별)
+  let createBlock = (content, id)=>{
+    let result ;
+    switch (content) {
+      case '이미지1':
+        return <ImageAdaptor id={id} dataList={dataList} setDataList={setDataList}/>;
+    
+      case '이미지2':
+        return <ThreeImage id={id} dataList={dataList} setDataList={setDataList}/>;
+    
+      default:
+        return <div>HELL</div>;
+    }
+  }
+  // 순서정렬
   const reorder = (list, startIndex, endIndex) => {
       const result = Array.from(list);
       const [removed] = result.splice(startIndex, 1);
@@ -19,20 +42,22 @@ function EditPage() {
   
       return result;
   };
-  /**
-   * Moves an item from one list to another list.
-   */
+
+  // 새로운 블록 생성 함수(복사하여 붙여넣기)
   const copy = (source, destination, droppableSource, droppableDestination) => {
       console.log('==> dest', destination);
   
       const sourceClone = Array.from(source);
       const destClone = Array.from(destination);
       const item = sourceClone[droppableSource.index];
-  
-      destClone.splice(droppableDestination.index, 0, { ...item, id: uuidv4() });
+      let newId = uuidv4();
+      destClone.splice(droppableDestination.index, 0, { ...item, id: newId });
+      blockList.push({id:newId, content:item.content});
+      setBlockList(blockList);
       return destClone;
   };
   
+  // 다른 영역으로 블록 옮기기
   const move = (source, destination, droppableSource, droppableDestination) => {
       const sourceClone = Array.from(source);
       const destClone = Array.from(destination);
@@ -68,7 +93,6 @@ function EditPage() {
           /* display:b; */
       }
   `;
-  
   const Handle = styled.div`
       display: flex;
       align-items: center;
@@ -136,85 +160,74 @@ function EditPage() {
       margin: 0 1rem;
   `;
   
+  // 식별자 리스트
   const ITEMS = [
     {
         id: uuidv4(),
         content: '도형1',
-        block : <div>도형1!!</div>
     },
     {
         id: uuidv4(),
         content: '도형2',
-        block : <div>도형2!!</div>
     },
     {
         id: uuidv4(),
         content: '도형3',
-        block : <div>도형3!!</div>
     },
     {
         id: uuidv4(),
         content: '도형4',
-        block : <div>도형4!!</div>
     },
   ];
   const ITEMS2 = [
       {
           id: uuidv4(),
           content: '글상자1',
-          block : <div>글상자1!!</div>
       },
       {
           id: uuidv4(),
           content: '글상자2',
-          block : <div>글상자2!!</div>
       },
       {
           id: uuidv4(),
           content: '글상자3',
-          block : <div>글상자3!!</div>
       },
       {
           id: uuidv4(),
           content: '글상자4',
-          block : <div>글상자4!!</div>
       },
       {
           id: uuidv4(),
           content: '글상자5',
-          block : <div>글상자5!!</div>
       },
   ];
   const ITEMS3 = [
       {
           id: uuidv4(),
           content: '이미지1',
-          block : <div>이미지1!!</div>
       },
       {
           id: uuidv4(),
           content: '이미지2',
-          block : <div>이미지2!!</div>
       },
       {
           id: uuidv4(),
           content: '이미지3',
-          block : <div>이미지3!!</div>
       },
       {
           id: uuidv4(),
           content: '이미지4',
-          block : <div>이미지4!!</div>
       },
       {
           id: uuidv4(),
           content: '이미지5',
-          block : <div>이미지5!!</div>
       },
   ];
 
 
+  // Drag끝날때
   let onDragEnd = result => {
+    //Drop된 영역에 따른 처리
     const { source, destination } = result;
 
     console.log('==> result', result);
@@ -223,7 +236,9 @@ function EditPage() {
       return;
     }
 
+    
     switch (source.droppableId) {
+      // 같은 영역 내 순서 정렬
       case destination.droppableId:
         setState({...state,
             [destination.droppableId]: reorder(
@@ -233,6 +248,7 @@ function EditPage() {
             )
         });
         break;
+      // 새로운 블록 생성
       case 'ITEMS':
         setState({...state,
             [destination.droppableId]: copy(
@@ -243,6 +259,7 @@ function EditPage() {
             )
         });
         break;
+      // 영역 옮기기
       default:
         move(
           state[source.droppableId],
@@ -254,11 +271,13 @@ function EditPage() {
     }
   };
 
+  // 새로운 영역 생성 함수
   let addList = e => {
       setState({ ...state, [uuidv4()]: [] });
   };
   const [page, setPage] = useState(-1);
 
+  // 왼쪽 카테고리 클릭 이벤트 css 변화 함수
   let flip = (idx)=>{
     categoryBtnRef.current.map((item, index)=>{
       if(item.classList.contains("clicked")){
@@ -276,10 +295,12 @@ function EditPage() {
       }
     })
   }
-  // Normally you would want to split things out into separate components.
-  // But in this example everything is just done in one place for simplicity
+  
+  
   let categoryBtnRef = useRef([]);
+  // 현재 보여줄 아이템 리스트 state
   const [kioItem, setKioItem] = useState();
+  // 카테고리 선택 시 아이템 리스트 변화
   useEffect(()=>{
     switch (page) {
       case 0:
@@ -299,6 +320,10 @@ function EditPage() {
         break;
     }
   },[page])
+
+  const resRef = useRef([]);
+  const [imageList, setImageList] = useState([]); //이미지 리소스 넣기
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className='category-container'>
@@ -396,7 +421,9 @@ function EditPage() {
                                 </svg>
                               </Handle>
 
-                              {item.block}
+                              {
+                                createBlock(item.content,item.id)
+                              }
 
                             </Item>
                           )}

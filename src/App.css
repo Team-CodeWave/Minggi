@@ -1,6 +1,9 @@
 *{
   box-sizing: border-box;
 }
+.wrapper{
+  width: 100%;height: 100%;
+}
 .category-container{
   position: absolute;
   top: 0;
@@ -58,4 +61,75 @@
   display: flex;
   align-items: center;
   justify-content:space-around;
+}
+
+
+/* ImageAdaptor */
+.uploadImage-btn-container{
+}
+.uploadImage-btn-container label, 
+.uploadImage-btn-container button{
+  display: block;
+  width: 20px;
+  border-radius: 100px;
+  background-color: #7f9ccb;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px ridge black;
+  font-size: 0.8rem;
+  height: auto;
+}
+.image-upload-Btn{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+  background: #efefef;
+  border-radius: 100vh;
+  overflow: hidden;
+}
+.image-upload-Btn>svg{
+  height: 50%;
+  width: 50%;
+}
+.image-upload-Btn:hover{
+  background: #dfdfdf;
+}
+
+.uploadImage-input {
+  display: none;
+}
+.image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ThreeImage */
+
+.threeImage-upload-Btn{
+  position: relative;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+  background: #efefef;
+  overflow: hidden;
+}
+.threeImage-upload-Btn>svg{
+  height: 50%;
+  width: 50%;
+}
+.threeImage-container{
+  display: flex;
+  justify-content: space-around;
 }
