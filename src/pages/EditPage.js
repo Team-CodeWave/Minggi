@@ -7,6 +7,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { BiLeftArrow, BiCube, BiCommentDetail, BiImageAdd } from "react-icons/bi";
 import ImageAdaptor from "../components/ImageAdaptor.js";
 import ThreeImage from "../components/ThreeImage.js";
+import AboutMe from "../components/AboutMe.js";
 
 
 function EditPage() {
@@ -29,7 +30,10 @@ function EditPage() {
     
       case '이미지2':
         return <ThreeImage id={id} dataList={dataList} setDataList={setDataList}/>;
-    
+
+      case '도형1':
+        return <AboutMe id={id} dataList={dataList} setDataList={setDataList}/>;
+
       default:
         return <div>HELL</div>;
     }
@@ -328,17 +332,23 @@ function EditPage() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className='category-container'>
         {/* state로 map 뿌리도록 바꿀 예정? */}
-        <div className='category-item' ref={(el)=>{categoryBtnRef.current[0]=el}} onClick={()=>{flip(0)}}>
-          <div className='category-item-front'><BiCube/></div>
-          <div className='category-item-back'><p>도형</p></div>
+        <div className="category-item-container">
+          <div className='category-item' ref={(el)=>{categoryBtnRef.current[0]=el}} onClick={()=>{flip(0)}}>
+            <div className='category-item-front'><BiCube/></div>
+            <div className='category-item-back'><p>도형</p></div>
+          </div>
         </div>
-        <div className='category-item' ref={(el)=>{categoryBtnRef.current[1]=el}} onClick={()=>{flip(1)}}>
-          <div className='category-item-front'><BiCommentDetail/></div>
-          <div className='category-item-back'><p>글상자</p></div>
+        <div className="category-item-container">
+          <div className='category-item' ref={(el)=>{categoryBtnRef.current[1]=el}} onClick={()=>{flip(1)}}>
+            <div className='category-item-front'><BiCommentDetail/></div>
+            <div className='category-item-back'><p>글상자</p></div>
+          </div>
         </div>
-        <div className='category-item' ref={(el)=>{categoryBtnRef.current[2]=el}} onClick={()=>{flip(2)}}>
-          <div className='category-item-front'><BiImageAdd/></div>
-          <div className='category-item-back'><p>이미지</p></div>
+        <div className="category-item-container">
+          <div className='category-item' ref={(el)=>{categoryBtnRef.current[2]=el}} onClick={()=>{flip(2)}}>
+            <div className='category-item-front'><BiImageAdd/></div>
+            <div className='category-item-back'><p>이미지</p></div>
+          </div>
         </div>
       </div>
       <Droppable droppableId="ITEMS" isDropDisabled={true}>
