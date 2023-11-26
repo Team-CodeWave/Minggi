@@ -5,9 +5,14 @@ import styled from 'styled-components';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { BiLeftArrow, BiCube, BiCommentDetail, BiImageAdd } from "react-icons/bi";
+import { GoGraph } from "react-icons/go";
+import { PiFlowArrowFill } from "react-icons/pi";
+
 import ImageAdaptor from "../components/ImageAdaptor.js";
 import ThreeImage from "../components/ThreeImage.js";
-
+import AboutMe from "../components/AboutMe.js";
+import Scroll from "../components/Scroll.js";
+import Profile from "../components/Profile.js";
 
 function EditPage() {
   // 영역 관리 state
@@ -29,7 +34,16 @@ function EditPage() {
     
       case '이미지2':
         return <ThreeImage id={id} dataList={dataList} setDataList={setDataList}/>;
-    
+
+      case '도형1':
+        return <AboutMe id={id} dataList={dataList} setDataList={setDataList}/>;
+      
+      case '도형2':
+        return <Scroll id={id} dataList={dataList} setDataList={setDataList}/>;
+      
+        case '도형3':
+        return <Profile id={id} dataList={dataList} setDataList={setDataList}/>;
+
       default:
         return <div>HELL</div>;
     }
@@ -126,6 +140,7 @@ function EditPage() {
   
   const Container = styled(List)`
       margin: 0.5rem 0.5rem 1.5rem;
+      min-width: 1100px;
       background: #ccc;
   `;
   
@@ -223,6 +238,50 @@ function EditPage() {
           content: '이미지5',
       },
   ];
+  const ITEMS4 = [
+      {
+          id: uuidv4(),
+          content: '그래프1',
+      },
+      {
+          id: uuidv4(),
+          content: '그래프2',
+      },
+      {
+          id: uuidv4(),
+          content: '그래프3',
+      },
+      {
+          id: uuidv4(),
+          content: '그래프4',
+      },
+      {
+          id: uuidv4(),
+          content: '그래프5',
+      },
+  ];
+  const ITEMS5 = [
+      {
+          id: uuidv4(),
+          content: '연대기1',
+      },
+      {
+          id: uuidv4(),
+          content: '연대기2',
+      },
+      {
+          id: uuidv4(),
+          content: '연대기3',
+      },
+      {
+          id: uuidv4(),
+          content: '연대기4',
+      },
+      {
+          id: uuidv4(),
+          content: '연대기5',
+      },
+  ];
 
 
   // Drag끝날때
@@ -314,6 +373,14 @@ function EditPage() {
       case 2:
         setKioItem(ITEMS3);
         break;
+      
+      case 3:
+        setKioItem(ITEMS4);
+        break;
+
+      case 4:
+        setKioItem(ITEMS5);
+        break;
     
       default:
         setKioItem();
@@ -328,17 +395,35 @@ function EditPage() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className='category-container'>
         {/* state로 map 뿌리도록 바꿀 예정? */}
-        <div className='category-item' ref={(el)=>{categoryBtnRef.current[0]=el}} onClick={()=>{flip(0)}}>
-          <div className='category-item-front'><BiCube/></div>
-          <div className='category-item-back'><p>도형</p></div>
+        <div className="category-item-container">
+          <div className='category-item' ref={(el)=>{categoryBtnRef.current[0]=el}} onClick={()=>{flip(0)}}>
+            <div className='category-item-front'><BiCube/></div>
+            <div className='category-item-back'><p>도형</p></div>
+          </div>
         </div>
-        <div className='category-item' ref={(el)=>{categoryBtnRef.current[1]=el}} onClick={()=>{flip(1)}}>
-          <div className='category-item-front'><BiCommentDetail/></div>
-          <div className='category-item-back'><p>글상자</p></div>
+        <div className="category-item-container">
+          <div className='category-item' ref={(el)=>{categoryBtnRef.current[1]=el}} onClick={()=>{flip(1)}}>
+            <div className='category-item-front'><BiCommentDetail/></div>
+            <div className='category-item-back'><p>글상자</p></div>
+          </div>
         </div>
-        <div className='category-item' ref={(el)=>{categoryBtnRef.current[2]=el}} onClick={()=>{flip(2)}}>
-          <div className='category-item-front'><BiImageAdd/></div>
-          <div className='category-item-back'><p>이미지</p></div>
+        <div className="category-item-container">
+          <div className='category-item' ref={(el)=>{categoryBtnRef.current[2]=el}} onClick={()=>{flip(2)}}>
+            <div className='category-item-front'><BiImageAdd/></div>
+            <div className='category-item-back'><p>이미지</p></div>
+          </div>
+        </div>
+        <div className="category-item-container">
+          <div className='category-item' ref={(el)=>{categoryBtnRef.current[3]=el}} onClick={()=>{flip(3)}}>
+            <div className='category-item-front'><GoGraph/></div>
+            <div className='category-item-back'><p>그래프</p></div>
+          </div>
+        </div>
+        <div className="category-item-container">
+          <div className='category-item' ref={(el)=>{categoryBtnRef.current[4]=el}} onClick={()=>{flip(4)}}>
+            <div className='category-item-front'><PiFlowArrowFill/></div>
+            <div className='category-item-back'><p>연대기</p></div>
+          </div>
         </div>
       </div>
       <Droppable droppableId="ITEMS" isDropDisabled={true}>
@@ -390,7 +475,7 @@ function EditPage() {
                 d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
               />
             </svg>
-            <ButtonText>Add List</ButtonText>
+            <ButtonText>구역 생성</ButtonText>
           </Button>
       {Object.keys(state).map((list, i) => {
         console.log('==> list', list);
