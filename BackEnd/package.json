@@ -1,5 +1,5 @@
 {
-  "name": "aws-ec2-nodejs-server-deployment-demo",
+  "name": "dnd",
   "version": "1.0.0",
   "description": "A simple node.js server deployment demo on AWS EC2.",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rheey90/aws-ec2-nodejs-server-deployment-demo.git"
+    "url": "git+https://github.com/Team-CodeWave/ReactBeautifulDND.git"
   },
   "keywords": [
     "nodejs",
@@ -20,9 +20,9 @@
   "author": "Damagedcase",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rheey90/aws-ec2-nodejs-server-deployment-demo/issues"
+    "url": "https://github.com/Team-CodeWave/ReactBeautifulDND/issues"
   },
-  "homepage": "https://github.com/rheey90/aws-ec2-nodejs-server-deployment-demo#readme",
+  "homepage": "https://github.com/Team-CodeWave/ReactBeautifulDND#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
