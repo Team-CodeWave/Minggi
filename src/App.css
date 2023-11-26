@@ -13,6 +13,7 @@ textarea{
 .wrapper{
   width: 100%;height: 100%;
   position: relative;
+  min-width: 1000px;
 }
 .category-container{
   position: absolute;
@@ -249,10 +250,11 @@ textarea{
 }
 .aboutme-save-btn{
   all: unset;
+  z-index: 10;
   position: absolute;
   width: 50px;
   height: 40px;
-  right: 0;
+  left: 0;
   border-radius: 5px;
   background: #ecfcef;
   text-align: center;
@@ -263,4 +265,240 @@ textarea{
 }
 .aboutme-save-btn:hover{
   background: #a5ffb6;
+}
+
+/* Scroll */
+.scroll-wrapper{
+  width: 97%;
+  overflow: hidden;
+}
+.scroll-container{
+  position: relative;
+  width: 150vw;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  /* background: #000; */
+}
+.scroll-item-container{
+  min-width: 800px;
+  width: 80%;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.scroll-item{
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  background: #efefef;
+  vertical-align: center;
+  line-height: 100px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: .3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.scroll-item:hover{
+  /* transform: scale(170%); */
+  width: 150px;
+  height: 200px;
+  line-height: 200px;
+  margin: 0 20px;
+}
+
+.scroll-item-thumbnail{
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+  background: #efefef;
+  overflow: hidden;
+  cursor: pointer;
+}
+.scroll-item-thumbnail>svg{
+  height: 50%;
+  width: 50%;
+}
+.scroll-item-thumbnail:hover{
+  background: #dfdfdf;
+}
+.scroll-item-content{
+  display: block;
+  width: 80px;
+  height: 0;
+  opacity: 0;
+  color: transparent;
+  transition: .5s;
+  background: none;
+  color: #333;
+  border: none;
+  font-size: 1rem;
+  outline: 0 none;
+  resize: none;
+}
+.scroll-item:hover > .scroll-item-content{
+  margin-top: 10px;
+  opacity: 1;
+  width: 130px;
+  height: 80px;
+}
+.scroll-save-btn{
+  all: unset;
+  z-index: 10;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  left: 0;
+  border-radius: 5px;
+  background: #ecfcef;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: .3s;
+  cursor: pointer;
+}
+.scroll-save-btn:hover{
+  background: #a5ffb6;
+}
+.scroll-handle-btn{
+  all: unset;
+  z-index: 11;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  left: 60px;
+  border-radius: 5px;
+  background: #f2ecfc;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: .3s;
+  cursor: pointer;
+}
+
+
+/* Scroll 애니메이션 */
+.scroll-item-container.roll1{
+  animation: 15s linear 0s infinite normal forwards running rolling1;
+}
+.scroll-item-container.roll2{
+  animation: 15s linear 0s infinite normal none running rolling2;
+}
+
+@keyframes rolling1 { /* 원본용 */
+  0% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateX(100%);
+  }
+  50.001%{
+      transform: translateX(-100%);
+  }
+  100%{
+      transform: translateX(0);
+  }
+}
+
+@keyframes rolling2 { /* 클론용 */
+  0% {
+      transform: translateX(-200%);
+  }
+  100% {
+      transform: translateX(0%);
+  }
+}
+
+
+/* Profile */
+.profile-container{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 20px;
+  padding: 0 100px;
+  justify-content: end;
+}
+.profile-save-btn{
+  all: unset;
+  z-index: 10;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  left: 0;
+  border-radius: 5px;
+  background: #ecfcef;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: .3s;
+  cursor: pointer;
+}
+.profile-save-btn:hover{
+  background: #a5ffb6;
+}
+.profile-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-image-upload-Btn{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+  background: #efefef;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 1px #afafaf, 0px 0px 3px 2px #afafaf; 
+}
+.profile-image-upload-Btn>svg{
+  height: 50%;
+  width: 50%;
+}
+.profile-image-upload-Btn:hover{
+  background: #dfdfdf;
+}
+.profile-content-container{
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+}
+.profile-text-title{
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: none;
+  font-size: 2.3rem;
+  font-weight: bold;
+  outline: 0 none;
+  resize: none;
+}
+.profile-text-content{
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: none;
+  font-size: 1.5rem;
+  outline: 0 none;
+  resize: none;
 }

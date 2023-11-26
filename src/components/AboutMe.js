@@ -49,26 +49,10 @@ const AboutMe = forwardRef( (props, ref)=>{
     props.setDataList(temp);
   }
   useEffect(()=>{
-    if(typing == -1 || typing == false){
-      props.dataList.forEach((it)=>{if(it.id == props.id){
-        setDataState(it.data);
-      }});
-    }
+    props.dataList.forEach((it)=>{if(it.id == props.id){
+      setDataState(it.data);
+    }});
   },[])
-  const [typing, setTyping] = useState(-1);
-  useEffect(()=>{
-    if(typing !== -1){
-      if(!typing){
-        saveText()
-      }
-      else{
-        setTimeout(() => {
-          console.log("HELL");
-          setTyping(false);
-        }, 500);
-      }
-    }
-  },[typing])
 
   let inputRef1 = useRef();
   let inputRef2 = useRef();
