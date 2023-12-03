@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+
+input {
+  margin: 5px;
+  width: 150px;
+  height: 15px;
+  border-radius: 1cm;
+  background-color: white;
+}
+
+input[name="data"] {
+  display: flexbox;
+  margin-left: 40px;
+}
+
+button[name="buttons"] {
+  margin: 3px;
+  background-color: rgb(110, 109, 109);
+  color: white;
+  border-radius: 5mm;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  white-space: pre-wrap;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.charts {
+  flex: 1;
+  margin-right: 50px;
+}

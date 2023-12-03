@@ -1,21 +1,23 @@
 @font-face {
-  font-family: 'EASTARJET-Medium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/EASTARJET-Medium.woff2') format('woff2');
+  font-family: "EASTARJET-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/EASTARJET-Medium.woff2")
+    format("woff2");
   font-weight: 500;
   font-style: normal;
 }
-*{
+* {
   box-sizing: border-box;
 }
-textarea{
-  font-family: 'EASTARJET-Medium';
+textarea {
+  font-family: "EASTARJET-Medium";
 }
-.wrapper{
-  width: 100%;height: 100%;
+.wrapper {
+  width: 100%;
+  height: 100%;
   position: relative;
   min-width: 1000px;
 }
-.category-container{
+.category-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +26,7 @@ textarea{
   flex-direction: column;
   align-items: center;
 }
-.category-item-container{
+.category-item-container {
   width: 60px;
   height: 60px;
   border: 3px solid #000;
@@ -34,18 +36,18 @@ textarea{
   justify-content: center;
   align-items: center;
 }
-.category-item{
+.category-item {
   width: 100%;
   height: 100%;
   /* margin-top: 10px; */
   transform-style: preserve-3d;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 }
-.category-container .clicked{
+.category-container .clicked {
   transform: rotateY(180deg);
 }
-.category-item-front{
+.category-item-front {
   position: relative;
   width: 100%;
   height: 100%;
@@ -58,11 +60,11 @@ textarea{
   border-radius: 7px;
   /* border: 3px solid #000; */
 }
-.category-item-front>svg{
+.category-item-front > svg {
   width: 60%;
   height: 60%;
 }
-.category-item-back{
+.category-item-back {
   z-index: 0;
   transform: rotateY(180deg);
   position: absolute;
@@ -78,18 +80,17 @@ textarea{
   align-items: center;
   justify-content: center;
 }
-.noneClicked{
+.noneClicked {
   display: flex;
   align-items: center;
-  justify-content:space-around;
+  justify-content: space-around;
 }
-
 
 /* ImageAdaptor */
-.uploadImage-btn-container{
+.uploadImage-btn-container {
 }
-.uploadImage-btn-container label, 
-.uploadImage-btn-container button{
+.uploadImage-btn-container label,
+.uploadImage-btn-container button {
   display: block;
   width: 20px;
   border-radius: 100px;
@@ -100,31 +101,31 @@ textarea{
   font-size: 0.8rem;
   height: auto;
 }
-.image-upload-Btn{
+.image-upload-Btn {
   position: relative;
   width: 200px;
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: .3s;
+  transition: 0.3s;
   background: #efefef;
   border-radius: 100vh;
   overflow: hidden;
   cursor: pointer;
 }
-.image-upload-Btn>svg{
+.image-upload-Btn > svg {
   height: 50%;
   width: 50%;
 }
-.image-upload-Btn:hover{
+.image-upload-Btn:hover {
   background: #dfdfdf;
 }
 
 .uploadImage-input {
   display: none;
 }
-.image{
+.image {
   position: absolute;
   top: 0;
   left: 0;
@@ -133,96 +134,96 @@ textarea{
   object-fit: cover;
 }
 
-
 /* ThreeImage */
 
-.threeImage-upload-Btn{
+.threeImage-upload-Btn {
   position: relative;
   width: 250px;
   height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: .3s;
+  transition: 0.3s;
   background: #efefef;
   overflow: hidden;
   cursor: pointer;
 }
-.threeImage-upload-Btn>svg{
+.threeImage-upload-Btn > svg {
   height: 50%;
   width: 50%;
 }
-.threeImage-upload-Btn:hover{
+.threeImage-upload-Btn:hover {
   background: #dfdfdf;
 }
-.threeImage-container{
+.threeImage-container {
   display: flex;
   justify-content: space-around;
 }
 
-
 /* AboutMe */
 
-.aboutme-container{
+.aboutme-container {
   display: grid;
   height: 300px;
   grid-template-rows: 20% 80%;
   grid-template-columns: 1fr;
 }
-.aboutme-title{
+.aboutme-title {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.aboutme-title textarea{
+.aboutme-title textarea {
   width: 70%;
   font-weight: bold;
   font-size: 2rem;
   text-align: center;
 }
-.aboutme-content-container{
-  width: 100%;height: 100%;
+.aboutme-content-container {
+  width: 100%;
+  height: 100%;
   padding: 0 100px 0 200px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
 }
-.aboutme-content-item{
+.aboutme-content-item {
   width: 100%;
   height: 100%;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 75px 1fr;
 }
-.aboutme-image-upload-Btn{
+.aboutme-image-upload-Btn {
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: .3s;
+  transition: 0.3s;
   background: #efefef;
   overflow: hidden;
   cursor: pointer;
 }
-.aboutme-image-upload-Btn>svg{
+.aboutme-image-upload-Btn > svg {
   height: 50%;
   width: 50%;
 }
-.aboutme-image-upload-Btn:hover{
+.aboutme-image-upload-Btn:hover {
   background: #dfdfdf;
 }
-.aboutme-text-container{
+.aboutme-text-container {
   position: relative;
-  width: 100%;height: 100%;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-rows: 2fr 3fr;
 }
-.aboutme-text-title{
+.aboutme-text-title {
   display: block;
   width: 100%;
   height: 100%;
@@ -233,12 +234,12 @@ textarea{
   outline: 0 none;
   resize: none;
 }
-.aboutme-text-container>p{
+.aboutme-text-container > p {
   margin: 0;
   font-size: 1rem;
   line-height: 1rem;
 }
-.aboutme-text{
+.aboutme-text {
   display: block;
   width: 100%;
   height: 100%;
@@ -248,7 +249,7 @@ textarea{
   outline: 0 none;
   resize: none;
 }
-.aboutme-save-btn{
+.aboutme-save-btn {
   all: unset;
   z-index: 10;
   position: absolute;
@@ -260,19 +261,19 @@ textarea{
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 }
-.aboutme-save-btn:hover{
+.aboutme-save-btn:hover {
   background: #a5ffb6;
 }
 
 /* Scroll */
-.scroll-wrapper{
+.scroll-wrapper {
   width: 97%;
   overflow: hidden;
 }
-.scroll-container{
+.scroll-container {
   position: relative;
   width: 150vw;
   height: 200px;
@@ -280,7 +281,7 @@ textarea{
   align-items: center;
   /* background: #000; */
 }
-.scroll-item-container{
+.scroll-item-container {
   min-width: 800px;
   width: 80%;
   height: 200px;
@@ -288,7 +289,7 @@ textarea{
   justify-content: space-around;
   align-items: center;
 }
-.scroll-item{
+.scroll-item {
   width: 100px;
   height: 100px;
   border-radius: 10px;
@@ -299,12 +300,12 @@ textarea{
   font-weight: bold;
   font-size: 2rem;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.scroll-item:hover{
+.scroll-item:hover {
   /* transform: scale(170%); */
   width: 150px;
   height: 200px;
@@ -312,7 +313,7 @@ textarea{
   margin: 0 20px;
 }
 
-.scroll-item-thumbnail{
+.scroll-item-thumbnail {
   position: relative;
   width: 80px;
   height: 80px;
@@ -322,25 +323,25 @@ textarea{
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: .3s;
+  transition: 0.3s;
   background: #efefef;
   overflow: hidden;
   cursor: pointer;
 }
-.scroll-item-thumbnail>svg{
+.scroll-item-thumbnail > svg {
   height: 50%;
   width: 50%;
 }
-.scroll-item-thumbnail:hover{
+.scroll-item-thumbnail:hover {
   background: #dfdfdf;
 }
-.scroll-item-content{
+.scroll-item-content {
   display: block;
   width: 80px;
   height: 0;
   opacity: 0;
   color: transparent;
-  transition: .5s;
+  transition: 0.5s;
   background: none;
   color: #333;
   border: none;
@@ -348,13 +349,13 @@ textarea{
   outline: 0 none;
   resize: none;
 }
-.scroll-item:hover > .scroll-item-content{
+.scroll-item:hover > .scroll-item-content {
   margin-top: 10px;
   opacity: 1;
   width: 130px;
   height: 80px;
 }
-.scroll-save-btn{
+.scroll-save-btn {
   all: unset;
   z-index: 10;
   position: absolute;
@@ -366,13 +367,13 @@ textarea{
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 }
-.scroll-save-btn:hover{
+.scroll-save-btn:hover {
   background: #a5ffb6;
 }
-.scroll-handle-btn{
+.scroll-handle-btn {
   all: unset;
   z-index: 11;
   position: absolute;
@@ -384,53 +385,53 @@ textarea{
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 }
 
-
 /* Scroll 애니메이션 */
-.scroll-item-container.roll1{
+.scroll-item-container.roll1 {
   animation: 15s linear 0s infinite normal forwards running rolling1;
 }
-.scroll-item-container.roll2{
+.scroll-item-container.roll2 {
   animation: 15s linear 0s infinite normal none running rolling2;
 }
 
-@keyframes rolling1 { /* 원본용 */
+@keyframes rolling1 {
+  /* 원본용 */
   0% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
   50% {
-      transform: translateX(100%);
+    transform: translateX(100%);
   }
-  50.001%{
-      transform: translateX(-100%);
-  }
-  100%{
-      transform: translateX(0);
-  }
-}
-
-@keyframes rolling2 { /* 클론용 */
-  0% {
-      transform: translateX(-200%);
+  50.001% {
+    transform: translateX(-100%);
   }
   100% {
-      transform: translateX(0%);
+    transform: translateX(0);
   }
 }
 
+@keyframes rolling2 {
+  /* 클론용 */
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
 
 /* Profile */
-.profile-container{
+.profile-container {
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-gap: 20px;
   padding: 0 100px;
   justify-content: end;
 }
-.profile-save-btn{
+.profile-save-btn {
   all: unset;
   z-index: 10;
   position: absolute;
@@ -442,13 +443,13 @@ textarea{
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 }
-.profile-save-btn:hover{
+.profile-save-btn:hover {
   background: #a5ffb6;
 }
-.profile-image{
+.profile-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -456,32 +457,32 @@ textarea{
   height: 100%;
   object-fit: cover;
 }
-.profile-image-upload-Btn{
+.profile-image-upload-Btn {
   position: relative;
   width: 300px;
   height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: .3s;
+  transition: 0.3s;
   background: #efefef;
   overflow: hidden;
   cursor: pointer;
   border-radius: 10px;
-  box-shadow: 0px 0px 1px 1px #afafaf, 0px 0px 3px 2px #afafaf; 
+  box-shadow: 0px 0px 1px 1px #afafaf, 0px 0px 3px 2px #afafaf;
 }
-.profile-image-upload-Btn>svg{
+.profile-image-upload-Btn > svg {
   height: 50%;
   width: 50%;
 }
-.profile-image-upload-Btn:hover{
+.profile-image-upload-Btn:hover {
   background: #dfdfdf;
 }
-.profile-content-container{
+.profile-content-container {
   display: grid;
   grid-template-rows: 1fr 3fr;
 }
-.profile-text-title{
+.profile-text-title {
   display: block;
   width: 100%;
   height: 100%;
@@ -492,7 +493,7 @@ textarea{
   outline: 0 none;
   resize: none;
 }
-.profile-text-content{
+.profile-text-content {
   display: block;
   width: 100%;
   height: 100%;
