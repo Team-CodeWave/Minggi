@@ -23,6 +23,7 @@ import Hchart from "../components/Hchart.js";
 import Vchart from "../components/Vcharts.js";
 import Pie from "../components/Piechart.js";
 import Doughnut from "../components/DoughnutChart.js";
+import Tag from "../components/Tags.js";
 
 function EditPage() {
   // 영역 관리 state
@@ -37,7 +38,9 @@ function EditPage() {
   // 블록 렌더링 함수 (content로 식별)
   let createBlock = (content, id) => {
     let result;
-    switch (content) {
+    switch (
+      content // content를 통해 인식함(식별자)
+    ) {
       case "이미지1":
         return (
           <ImageAdaptor id={id} dataList={dataList} setDataList={setDataList} />
@@ -60,12 +63,17 @@ function EditPage() {
         return (
           <Profile id={id} dataList={dataList} setDataList={setDataList} />
         );
+      case "글상자1":
+        return <Tag id={id} dataList={dataList} setDataList={setDataList} />;
       case "그래프1":
         return <Vchart id={id} dataList={dataList} setDataList={setDataList} />;
+
       case "그래프2":
         return <Hchart id={id} dataList={dataList} setDataList={setDataList} />;
+
       case "그래프3":
         return <Pie id={id} dataList={dataList} setDataList={setDataList} />;
+
       case "그래프4":
         return (
           <Doughnut id={id} dataList={dataList} setDataList={setDataList} />
@@ -206,10 +214,11 @@ function EditPage() {
     margin: 0 1rem;
   `;
 
-  // 식별자 리스트
+  // 식별자 리스트 여기를 봐야함
   const ITEMS = [
     {
       id: uuidv4(),
+      //title: "프로필", -> 버튼을 눌렀을 때 나오는 요소들
       content: "도형1",
     },
     {

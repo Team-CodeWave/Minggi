@@ -10,7 +10,7 @@ const App = () => {
 
   const labelsInputRef = useRef(null); // labels 입력 필드의 ref
 
-  const handleInputChange = (e) => {
+  const InputChange = (e) => {
     e.preventDefault();
     const inputLabels = e.target.labels.value.split(","); // 쉼표(,)를 기준으로 사용자 입력을 분할하여 labels로 설정
     const inputData = e.target.data.value.split(","); // 쉼표(,)를 기준으로 사용자 입력을 분할하여 data로 설정
@@ -48,7 +48,7 @@ const App = () => {
     e.target.data.value = ""; // 입력 필드 초기화
   };
 
-  const handleEdit = (label) => {
+  const Edit = (label) => {
     const index = labels.indexOf(label);
     if (index !== -1) {
       setSelectedLabel(labels[index]);
@@ -56,7 +56,7 @@ const App = () => {
     }
   };
 
-  const handleUpdate = () => {
+  const Update = () => {
     const index = labels.indexOf(selectedLabel);
     if (index !== -1) {
       const updatedLabels = [...labels];
@@ -70,7 +70,7 @@ const App = () => {
     }
   };
 
-  const handleDelete = (label) => {
+  const Delete = (label) => {
     const index = labels.indexOf(label);
     if (index !== -1) {
       const updatedLabels = [...labels];
@@ -168,7 +168,7 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <form onSubmit={handleInputChange} name="charts">
+      <form onSubmit={InputChange} name="charts">
         <div>
           <label>
             {" "}
@@ -192,10 +192,10 @@ const App = () => {
           {labels.map((label, index) => (
             <div key={label}>
               {label}: {data[index]}
-              <button name="buttons" onClick={() => handleEdit(label)}>
+              <button name="buttons" onClick={() => Edit(label)}>
                 수정
               </button>
-              <button name="buttons" onClick={() => handleDelete(label)}>
+              <button name="buttons" onClick={() => Delete(label)}>
                 삭제
               </button>
             </div>
@@ -205,15 +205,17 @@ const App = () => {
           <div>
             <input
               type="text"
+              name="inputbox"
               value={selectedLabel}
               onChange={(e) => setSelectedLabel(e.target.value)}
             />
             <input
               type="text"
+              name="inputbox"
               value={selectedData}
               onChange={(e) => setSelectedData(e.target.value)}
             />
-            <button name="buttons" onClick={handleUpdate}>
+            <button name="buttons" onClick={Update}>
               수정 완료
             </button>
           </div>

@@ -503,3 +503,32 @@ textarea {
   outline: 0 none;
   resize: none;
 }
+
+input[name="labels"] [name="data"] [name="inputbox"] {
+  margin: 5px;
+}
+
+input[name="data"] {
+  display: flexbox;
+  margin-left: 40px;
+}
+
+button[name="buttons"] {
+  margin: 3px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  white-space: pre-wrap;
+  padding: 10px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: -70px;
+}
+
+.charts {
+  flex: 1;
+  margin-right: 50px;
+}
